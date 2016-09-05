@@ -20,13 +20,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$longitude = floatval($_POST['longitude']);
 			$imageString = $_POST['imagem'];
 			$imageData = base64_decode($imageString);
-			$imageFile = imagecreatefromstring($imageData);
-			$imageBlob = $imageFile ->getImageBlob();
-			$imageToDb = $mysqli->real_escape_string($imageBlob);
+// 			$imageFile = imagecreatefromstring($imageData);
+// 			$imageBlob = $imageFile ->getImageBlob();
+// 			$imageToDb = $mysqli->real_escape_string($imageBlob);
 			
 			// Insert data into data base
 			$sql = "INSERT INTO imagem ( imageBlob, latitude, longitude) 
-					VALUES ($imageToDb, $latitude, $longitude);";
+					VALUES ($imageData, $latitude, $longitude);";
 			$qur = $mysqli->query($sql);
 			if($qur){
 				$json = array("status" => 1, "msg" => "OK", "base64"=>$imageString);
