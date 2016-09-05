@@ -28,10 +28,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$sql = "INSERT INTO imagem ( imageBlob, latitude, longitude) 
 					VALUES ($imageData, $latitude, $longitude);";
 			$qur = $mysqli->query($sql);
+			$error = $mysqli->error;
 			if($qur){
 				$json = array("status" => 1, "msg" => "OK", "base64"=>$imageString);
 			}else{
-				$json = array("status" => 0, "msg" => "Error", "base64"=>$imageString);
+				$json = array("status" => 0, "msg" => "", "base64"=>$imageString);
 			}
 
 	}else {
