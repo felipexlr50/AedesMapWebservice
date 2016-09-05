@@ -29,9 +29,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 					VALUES ($imageToDb, $latitude, $longitude);";
 			$qur = $mysqli->query($sql);
 			if($qur){
-				$json = array("status" => 1, "msg" => "OK");
+				$json = array("status" => 1, "msg" => "OK", "base64"=>$imageString);
 			}else{
-				$json = array("status" => 0, "msg" => "Error");
+				$json = array("status" => 0, "msg" => "Error", "base64"=>$imageString);
 			}
 
 	}else {
