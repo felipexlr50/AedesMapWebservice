@@ -18,10 +18,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			//$imageBlob = mysqli_real_escape_string($mysqli,$_POST['imageBlob']);
 			$latitude = floatval($_POST['latitude']);
 			$longitude = floatval($_POST['longitude']);
+			$imageString = $_POST['imagem'];
+			$imageData = base64_decode($imageString);
+			$imageFile = imagecreatefromstring($imageData);
+			$imageBlob = $imageFile ->getImageBlob();
+			$imageToDb = $mysqli->real_escape_string($imageBlob);
 			
 			// Insert data into data base
-			$sql = "INSERT INTO imagem ( latitude, longitude) 
-					VALUES ($latitude, $longitude);";
+			$sql = "INSERT INTO imagem ( imageBlob, latitude, longitude) 
+					VALUES ($imageToDb, $latitude, $longitude);";
 			$qur = $mysqli->query($sql);
 			if($qur){
 				$json = array("status" => 1, "msg" => "OK");
