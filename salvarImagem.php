@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			if($qur){
 				$json = array("status" => 1, "msg" => "OK", "base64"=>$imageString);
 			}else{
-				$json = array("status" => 0, "msg" => $error, "base64"=>$imageString);
+				$json = array("status" => 0, "msg" => $error, "base64"=>$repairImg);
 			}
 
 	}else {
