@@ -2,6 +2,15 @@
 
 include "APIKEY_VERIFY.php";
 
+function file_force_contents($dir, $contents){
+        $parts = explode('/', $dir);
+        $file = array_pop($parts);
+        $dir = '';
+        foreach($parts as $part)
+            if(!is_dir($dir .= "/$part")) mkdir($dir);
+        file_put_contents("$dir/$file", $contents);
+    }
+
 //$mysqli = mysqli_connect("localhost", "root", "","aedesmap");
 $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_aedes");
 
@@ -27,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$date = date('Y-m-d H:i:s');
 			$imgName = str_replace(" ","",$date);
 		
-			file_put_contents('/img/temp/'.$imgName, $imageData);
+			file_force_contents("/img/temp/". $imgName . ".png", $imageData);
 
 			// Insert data into data base
 			$sql = "INSERT INTO imagem (latitude, longitude) 
