@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$longitude = floatval($_POST['longitude']);
 			$imageString = $_POST['imagem'];
 			$imageData = base64_decode($repairImg);
-			
+			$imageString = "'" . $imageString . "'";	
 			//file_force_contents($_SERVER['DOCUMENT_ROOT']."/public_html/img/temp/". $imgName . ".png", $imageData);
 
 			// Insert data into data base
