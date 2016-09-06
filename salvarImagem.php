@@ -28,25 +28,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$latitude = floatval($_POST['latitude']);
 			$longitude = floatval($_POST['longitude']);
 			$imageString = $_POST['imagem'];
-			$repairImg = str_replace("\\","",$imageString);
-			$repairImg = str_replace("\\n","",$repairImg);
 			$imageData = base64_decode($repairImg);
-		
-			date_default_timezone_set('America/Sao_Paulo');
-			$date = date('Y-m-d H:i:s');
-			$imgName = str_replace(" ","",$date);
-		
-			file_force_contents($_SERVER['DOCUMENT_ROOT']."/public_html/img/temp/". $imgName . ".png", $imageData);
+			
+			//file_force_contents($_SERVER['DOCUMENT_ROOT']."/public_html/img/temp/". $imgName . ".png", $imageData);
 
 			// Insert data into data base
-			$sql = "INSERT INTO imagem (latitude, longitude) 
-					VALUES ($latitude, $longitude);";
+			$sql = "INSERT INTO imagem (imageBlob, latitude, longitude) 
+					VALUES ($imageString, $latitude, $longitude);";
 			$qur = $mysqli->query($sql);
 			$error = $mysqli->error;
 			if($qur){
 				$json = array("status" => 1, "msg" => "OK", "base64"=>$imageString);
 			}else{
-				$json = array("status" => 0, "msg" => $error, "base64"=>$repairImg);
+				$json = array("status" => 0, "msg" => $error, "base64"=>$imageString);
 			}
 
 	}else {
