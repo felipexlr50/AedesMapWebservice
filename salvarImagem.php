@@ -19,14 +19,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$latitude = floatval($_POST['latitude']);
 			$longitude = floatval($_POST['longitude']);
 			$imageString = $_POST['imagem'];
-			$imageData = base64_decode($imageString);
-// 			$imageFile = imagecreatefromstring($imageData);
-// 			$imageBlob = $imageFile ->getImageBlob();
-// 			$imageToDb = $mysqli->real_escape_string($imageBlob);
-			
+			$repairImg = str_replace("\\","",$imageString);
+			$repairImg = str_replace("\\n","",$repairImg);
+			$imageData = base64_decode($repairImg);
+		
+			date_default_timezone_set('America/Sao_Paulo');
+			$date = date('Y-m-d H:i:s');
+			$imgName = str_replace(" ","",$date);
+		
+			file_put_contents('/img/temp/'.$imgName, $imageData);
+
 			// Insert data into data base
-			$sql = "INSERT INTO imagem ( imageBlob, latitude, longitude) 
-					VALUES ($imageData, $latitude, $longitude);";
+			$sql = "INSERT INTO imagem (latitude, longitude) 
+					VALUES ($latitude, $longitude);";
 			$qur = $mysqli->query($sql);
 			$error = $mysqli->error;
 			if($qur){
