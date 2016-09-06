@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$date = date('Y-m-d H:i:s');
 			$imgName = str_replace(" ","",$date);
 		
-			file_force_contents("/img/temp/". $imgName . ".png", $imageData);
+			file_force_contents($_SERVER['DOCUMENT_ROOT']."/public_html/img/temp/". $imgName . ".png", $imageData);
 
 			// Insert data into data base
 			$sql = "INSERT INTO imagem (latitude, longitude) 
