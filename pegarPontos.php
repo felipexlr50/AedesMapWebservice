@@ -9,12 +9,11 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
     $resultArray =array();
     
     while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-        $imageString = $row['imageBlob'];
         $latitude = $row['latitude'];
         $longitude = $row['longitude'];
         $dataInserida = $row['dataInserida'];
        // $resultArray[] = array("{latitude : $latitude","longitude : $longitude","datahora : $dataInserida}" );
-       $resultArray[] = array('latitude'=> $latitude,'longitude'=> $longitude,'datahora' => $dataInserida, 'imgString' => $imageString ); 
+       $resultArray[] = array('latitude'=> $latitude,'longitude'=> $longitude,'datahora' => $dataInserida ); 
     }
     
     $json = array("status" => 1, "info" => $resultArray);
