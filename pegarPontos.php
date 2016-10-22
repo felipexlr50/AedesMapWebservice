@@ -21,5 +21,6 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
  @mysqli_close($mysqli);
  
  /* Output header */
+ header('Access-Control-Allow-Origin: *');
  header('Content-type: application/json');
  echo json_encode($json);
