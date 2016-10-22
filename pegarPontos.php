@@ -36,6 +36,12 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 	}else {
 		$json = array("status" => 0, "msg" => "Api key invalided!","recived"=>$APIKEY,
 		"generated" => $hash);
+    	echo json_encode($json);
+      echo "<br>";
+      echo "Recived: " .$token;
+      echo "<br>";
+      echo "Expected: " .$hash
+    
 	}
 }
  
