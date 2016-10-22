@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
       echo "<br>";
       echo "Recived: " .$token;
       echo "<br>";
-      echo "Expected: " .$hash
+      echo "Expected: " .$hash;
     
 	}
 }
