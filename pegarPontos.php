@@ -25,19 +25,14 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
         $json = array("status" => OK, "data" => $resultArray);
  
        @mysqli_close($mysqli);
- 
-       /* Output header */
-       header('Access-Control-Allow-Origin: *');
-       header('Content-type: application/json');
-      
-			
 
 	}else {
 		$json = array("status" => Error, "message" => "Api key invalided!","recived"=>$APIKEY,
 		"generated" => $hash);
     
 	}
-
+   header('Access-Control-Allow-Origin: *');
+   header('Content-type: application/json');
    echo json_encode($json);
 
  
