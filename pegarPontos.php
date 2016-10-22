@@ -2,7 +2,7 @@
 include "APIKEY_VERIFY.php";
 $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_aedes");
 
-
+if($_SERVER['REQUEST_METHOD'] == "GET"){
   $password = "batata";
 	$APIKEY = $_SERVER['HTTP_X_API_KEY'];
 	list($token,$timestamp) = explode("-",$APIKEY);
@@ -37,6 +37,7 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
 		$json = array("status" => 0, "msg" => "Api key invalided!","recived"=>$APIKEY,
 		"generated" => $hash);
 	}
+}
  
     
    
