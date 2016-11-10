@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$hash = hash("sha256",$password . $timestamp);
 
 	if($hash==$token && testTimeStamp($timestamp,600)){
-    $email = $_POST['id_admin'];
+    $email = $_POST['email'];
     $senhaClient = $_POST['senha'];
     $sql = "SELECT DISTINCT * FROM admin WHERE email = '$email' ";
        $result = $mysqli->query($sql);
@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 				
     }
     else{
-			$debug = array("error"=>$error, "email" => $email, "senha"=>$senha);
+			$debug = array("error"=>$error, "email" => $email, "senha"=>$senhaClient);
 		 	$json = array("status" => false, "msg" => "Logado", "id" => $id_admin, "nome" => $nome, "debug" => $debug ); 
 			//$json = array("status" => false, "msg" => "Senha ou login errados");
 		}
