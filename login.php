@@ -25,7 +25,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $json = array("status" => true, "msg" => "Logado", "id" => $id_admin, "nome" => $nome );
     }
     else{
-		 	$json = array("status" => false, "msg" => "Logado", "id" => $id_admin, "nome" => $nome ); //$json = array("status" => false, "msg" => "Senha ou login errados");
+		 	$json = array("status" => false, "msg" => "Logado", "id" => $id_admin, "nome" => $nome ); 
+			//$json = array("status" => false, "msg" => "Senha ou login errados");
 		}
   }
   
