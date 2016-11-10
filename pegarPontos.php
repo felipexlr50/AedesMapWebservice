@@ -3,7 +3,7 @@ include "APIKEY_VERIFY.php";
 $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_aedes");
 
       
-       $sql = "select imageBlob, latitude,longitude, dataInserida from imagem ";
+       $sql = "select * from imagem ";
        $result = $mysqli->query($sql);
        $resultArray =array();
     
@@ -12,7 +12,8 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
             $longitude = $row['longitude'];
             $dataInserida = $row['dataInserida'];
             $imagemBlob = $row['imagemBlob'];
-            $resultArray[] = array('latitude'=> $latitude,'longitude'=> $longitude,'datahora' => $dataInserida, 'imagemBlob' => $imagemBlob ); 
+            $imagem_id = $row['id'];
+            $resultArray[] = array( 'id' => $imagem_id, 'latitude'=> $latitude,'longitude'=> $longitude,'datahora' => $dataInserida, 'imagemBlob' => $imagemBlob ); 
         }
     
         $json = array("status" => true, "data" => $resultArray);
