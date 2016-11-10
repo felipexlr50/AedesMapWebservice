@@ -6,12 +6,13 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
 if($_SERVER['REQUEST_METHOD'] == "POST"){
   $password = "batata";
 	$APIKEY = $_POST['API_KEY'];
+	$email = $_POST['email'];
+  $senhaClient = $_POST['senha'];
 	list($token,$timestamp) = explode("-",$APIKEY);
 	$hash = hash("sha256",$password . $timestamp);
 
 	if($hash==$token && testTimeStamp($timestamp,600)){
-    $email = $_POST['email'];
-    $senhaClient = $_POST['senha'];
+    
     $sql = "SELECT DISTINCT * FROM admin WHERE email = '$email' ";
        $result = $mysqli->query($sql);
        $error = $mysqli->error;
