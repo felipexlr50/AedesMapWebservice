@@ -22,7 +22,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $nome = $row['Nome'];
             
     }
-    if($senha == $senhaClient){
+		
+	    if($senha == $senhaClient){
+					$sql = "INSERT INTO login (id_admin) VALUES ($id_admin);";
+					$qur = $mysqli->query($sql);
         $json = array("status" => true, "msg" => "Logado", "id" => $id_admin, "nome" => $nome );
 				
     }
