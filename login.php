@@ -31,8 +31,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
     else{
 			//$debug = array("error"=>$error, "email" => $email, "senha"=>$senhaClient);
-		 	$json = array("status" => false, "msg" => "Logado", "id" => $id_admin, "nome" => $nome ); 
-			//$json = array("status" => false, "msg" => "Senha ou login errados");
+		 	//$json = array("status" => false, "msg" => "Logado", "id" => $id_admin, "nome" => $nome ); 
+			$json = array("status" => false, "msg" => "Senha ou login errados");
 		}
   }
   
