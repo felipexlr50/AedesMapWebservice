@@ -13,6 +13,8 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
             $dataInserida = $row['dataInserida'];
             $imagemBlob = $row['imageBlob'];
             $imagem_id = $row['id'];
+            $imagemBlob = str_replace("-","+",$imagemBlob);
+            $imagemBlob = str_replace("_","/",$imagemBlob);
             $resultArray[] = array( 'id' => $imagem_id, 'latitude'=> $latitude,'longitude'=> $longitude,'datahora' => $dataInserida, 'imageBlob' => $imagemBlob ); 
         }
     
