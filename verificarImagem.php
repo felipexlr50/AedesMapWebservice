@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $id_admin = $_POST['id_admin'];
 		$id_imagem = $_POST['id_imagem'];
 			
-    $sql = "INSERT INTO verificar (id_admin, id_imagem) VALUES ($id_admin,$id_imagem);";
+    $sql = "INSERT INTO verificar (idAdmin, idImagem) VALUES ($id_admin,$id_imagem);";
 			$qur = $mysqli->query($sql);
     $sql = "UPDATE imagem SET status = 'T' WHERE id = $id_imagem ;";
 			$error = $mysqli->error;
