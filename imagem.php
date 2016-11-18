@@ -2,7 +2,7 @@
 include "APIKEY_VERIFY.php";
 $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_aedes");
 
-       $id = (int) $_GET['id']
+       $id = (int) $_GET['id'];
          
        $sql = "select * from imagem where status = 'F' and id = $id";
        $result = $mysqli->query($sql);
