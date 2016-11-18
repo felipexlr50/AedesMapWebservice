@@ -14,7 +14,7 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
             $imagemBlob = $row['imageBlob'];
             $imagem_id = $row['id'];
             
-            $resultArray[] = array( 'id' => $imagem_id, 'latitude'=> $latitude,'longitude'=> $longitude,'datahora' => $dataInserida, 'imageBlob' => $imagemBlob ); 
+            $resultArray[] = array( 'id' => $imagem_id, 'latitude'=> $latitude,'longitude'=> $longitude,'datahora' => $dataInserida); 
         }
     
         $json = array("status" => true, "data" => $resultArray);
