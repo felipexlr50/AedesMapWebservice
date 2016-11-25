@@ -6,7 +6,7 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
         
        
        $id = $_POST['id']; 
-       $sql = "select * from imagem where status = 'F' and id = $id";
+       $sql = "select * from imagem where status = 'F' and id = '$id' ";
        $result = $mysqli->query($sql);
        $error = $mysqli->error;
        $resultArray =array();
