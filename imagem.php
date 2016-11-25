@@ -9,8 +9,8 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
 			 $sql = "select * from imagem where status = 'F' and id = $id ";
 			 $result = $mysqli->query($sql);
        $resultArray =array();
-			 
-			  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			 if($result){
+				  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
             $imagemBlob = $row['imageBlob'];
             $imagem_id = $row['id'];
             
@@ -18,6 +18,12 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
         }
     
         $json = array("status" => true, "data" => $resultArray);
+				 
+			 }
+			 else{
+					$json = array("status" => false, "msg" => "Algo deu errado :( ");
+			 }
+			 
 			 
 			 
 		 } 
