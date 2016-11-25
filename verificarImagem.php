@@ -18,9 +18,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $sql = "INSERT INTO verificar (idAdmin, idImagem) VALUES ($id_admin,$id_imagem);";
 			$qur = $mysqli->query($sql);
     $sql = "UPDATE imagem SET status = 'T' WHERE id = $id_imagem ;";
+			$qur2 = $mysqli->query($sql);
 			$error = $mysqli->error;
 			if($qur){
-				$json = array("status" => true, "msg" => "OK");
+				if($qur2){
+					$json = array("status" => true, "msg" => "OK");
+				}
+				else{
+				$json = array("status" => false, "msg" => $error);
+			}
+				
 			}else{
 				$json = array("status" => false, "msg" => $error);
 			}
