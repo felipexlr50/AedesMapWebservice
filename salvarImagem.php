@@ -59,5 +59,5 @@ mysqli_close($mysqli);
 
 /* Output header */
 	header('Access-Control-Allow-Origin: *');
-	header('Content-type: application/json');
+	header('Content-Type: application/json; charset=utf-8');
 	echo json_encode($json);

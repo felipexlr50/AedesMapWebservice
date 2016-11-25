@@ -19,10 +19,10 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
     
         $json = array("status" => true, "data" => $resultArray);
  
-       @mysqli_close($mysqli);
+       mysqli_close($mysqli);
 
    header('Access-Control-Allow-Origin: *');
-   header('Content-type: application/json');
+   header('Content-Type: application/json; charset=utf-8');
    echo json_encode($json);
 
  
