@@ -5,7 +5,7 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
       if($_SERVER['REQUEST_METHOD'] == "POST"){
         
        
-       $id = intval($_POST['id']); 
+       $id = $_POST['id']; 
        $sql = "select * from imagem where status = 'F' and id = $id";
        $result = $mysqli->query($sql);
        $error = $mysqli->error;
