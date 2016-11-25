@@ -10,7 +10,7 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
 			 $result = $mysqli->query($sql);
        $resultArray =array();
 			 $imagemBlob = ""
-			 $imagem_id = 0 
+			 $imagem_id = "" 
 			 if($result){
 				  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
             $imagemBlob = $row['imageBlob'];
