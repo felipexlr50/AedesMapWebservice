@@ -24,11 +24,7 @@ $mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_
 	      $json = array("status" => false, "msg" => "Request method not accepted!");
     }
          
-      
-
-       
- 
-       @mysqli_close($mysqli);
+  mysqli_close($mysqli);
 
    header('Access-Control-Allow-Origin: *');
    header('Content-type: application/json');
