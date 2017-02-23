@@ -1,7 +1,7 @@
 <?php
 
 include "APIKEY_VERIFY.php";
-include "msqliConnection.php"
+include "msqliConnection.php";
 function file_force_contents($dir, $contents){
         $parts = explode('/', $dir);
         $file = array_pop($parts);
