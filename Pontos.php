@@ -1,8 +1,9 @@
 <?php
 include "APIKEY_VERIFY.php";
+include "msqliConnection.php";
 if($_SERVER['REQUEST_METHOD'] == "GET"){
 
-$mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_aedes");
+
 
       
        $sql = "select imageBlob, latitude,longitude, dataInserida from imagem WHERE status = 'T' ;";
