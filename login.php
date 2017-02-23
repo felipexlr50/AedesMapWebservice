@@ -1,7 +1,7 @@
 <?php
 include "APIKEY_VERIFY.php";
+include "msqliConnection.php";
 
-$mysqli = mysqli_connect("localhost", "u517046934_fel", "7c7fd8486","u517046934_aedes");
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
   $password = "batata";
